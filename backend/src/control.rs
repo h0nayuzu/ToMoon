@@ -352,6 +352,11 @@ impl Clash {
             .arg(decky_data_dir)
             .arg("-f")
             .arg(run_config)
+            // mihomo refuses external-ui/geodata paths outside -d home dir unless whitelisted
+            .env(
+                "SAFE_PATHS",
+                get_current_working_dir().unwrap().join("bin/core/web"),
+            )
             .stdout(outputs)
             .stderr(errors)
             .spawn();
