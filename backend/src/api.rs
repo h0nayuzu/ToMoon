@@ -260,7 +260,7 @@ pub fn download_sub(runtime: &ControlRuntime) -> impl Fn(Vec<Primitive>) -> Vec<
                             match minreq::get(url.clone())
                                 .with_header(
                                     "User-Agent",
-                                    format!("ToMoonClash/{}", env!("CARGO_PKG_VERSION")),
+                                    "clash.meta/v1.19.0",
                                 )
                                 .with_timeout(15)
                                 .send()
